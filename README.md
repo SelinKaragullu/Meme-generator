@@ -1,7 +1,7 @@
 
 
 
-# 🤪 Meme Generator
+# Meme Generator
 
 A interactive React application that allows users to generate custom memes. It fetches a database of popular meme templates from an API and allows users to add their own top and bottom text in real-time.
 
@@ -52,46 +52,3 @@ To get a local copy up and running, follow these simple steps.
     ```
 
 4.  Open your browser and navigate to the local host URL provided by Vite (usually `http://localhost:5173`).
-
-## 🧠 How It Works
-
-The core logic lives in `Main.jsx`. Here is a breakdown of the key concepts used:
-
-* **`useEffect` Hook:** Used to perform the side effect of fetching data from the API when the component first renders.
-    ```javascript
-    useEffect(() => {
-        fetch("[https://api.imgflip.com/get_memes](https://api.imgflip.com/get_memes)")
-            .then(res => res.json())
-            .then(data => setAllMemes(data.data.memes))
-    }, [])
-    ```
-
-* **`useState` Hook:** Manages the state of the current meme (image URL and text) as well as the array of all available memes.
-    ```javascript
-    const [meme, setMeme] = useState({
-        topText: "One does not simply",
-        bottomText: "Walk into Mordor",
-        imageUrl: "[http://i.imgflip.com/1bij.jpg](http://i.imgflip.com/1bij.jpg)"
-    })
-    ```
-
-* **Controlled Components:** The `handleChange` function updates the state object dynamically based on the input's `name` property, ensuring the UI stays in sync with the state.
-
-## 📂 Project Structure
-
-```text
-├── src
-│   ├── assets
-│   │   └── troll-face.png  # Header Icon
-│   ├── App.jsx             # Main Application Wrapper
-│   ├── Header.jsx          # Top Navigation Bar
-│   ├── Main.jsx            # Core Logic, Form, and Image Display
-│   ├── index.css           # Global Styles
-│   └── index.jsx           # Entry Point
-├── index.html              # HTML Template
-├── package.json            # Dependencies and Scripts
-└── vite.config.js
-
-
-
-
